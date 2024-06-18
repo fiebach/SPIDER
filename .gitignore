@@ -1,0 +1,10 @@
+node_modules/
+node_modules
+backend/help_data/drugbank
+backend/challenge_data
+backend/__pycache__
+backend/neo4j_database_dump/
+db/
+backend/
+build/
+build
