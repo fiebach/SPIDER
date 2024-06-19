@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   fastapi:
-    image: thegoldenphoenix/fastapi:beta
+    image: thegoldenphoenix/fastapi:version1.0
     ports:
       - "8000:8000"
     depends_on:
@@ -14,7 +14,7 @@ services:
 
   react-nginx-app:
     stdin_open: true
-    image: thegoldenphoenix/react:beta
+    image: thegoldenphoenix/react:version1.0
     expose:
       - 3000
     ports:
@@ -23,7 +23,7 @@ services:
         - CHOKIDAR_USEPOLLING=true
 
   neo4j:
-    image: thegoldenphoenix/neo4j:beta
+    image: thegoldenphoenix/neo4j:version1.0
     ports:
       - "7474:7474"
       - "7687:7687"

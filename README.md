@@ -3,13 +3,17 @@ Our platform provides an immersive experience for exploring and analyzing a segm
 With a primary focus on identifying associated proteins and drugs for individual or groups of proteins, SPIDER offers comprehensive tools for in-depth research.
 
 This repository contains the code for the **S**ystem for **P**rotein, **I**nteractions, **D**rugs, and **E**xploratory **R**esearch (**SPIDER**).
+To use SPIDER locally on your PC, we recommend using the Docker version of SPIDER. For detailed instructions, see the [Docker installation instructions](#docker).
+
+
 
 ## Structure
 
-The code is divided into two main categories:
+The code is divided into three main categories:
 
 1. **Frontend** - Code for the SPIDER frontend
 2. **Backend** - FastAPI server, Neo4j dump, and other utilities
+3. **Docker** - docker-compose.yml to install and run SPIDER in a Docker container
 
 These categories are further divided into subcategories.
 
@@ -67,11 +71,17 @@ neo4j start
 Note: change the file paths according to your configuration
 - Call http://localhost:7474/browser/ and execute the following Neo4j cipher
 ```
-CALL gds.graph.project(
-  'graph',
-  'Protein',
-  {PPI_ASSOCIATION: {orientation: 'UNDIRECTED'}}
-)
+CREATE INDEX IF NOT EXISTS FOR (d:Drug) ON (d.name);
+CREATE INDEX IF NOT EXISTS FOR (p:Protein) ON (p.name);
+CREATE INDEX IF NOT EXISTS FOR (c:Cell_Line) ON (c.name);
+CREATE INDEX IF NOT EXISTS FOR (d:Drug) ON (d.uid);
+CREATE INDEX IF NOT EXISTS FOR (p:Protein) ON (p.uid);
+CREATE INDEX IF NOT EXISTS FOR (c:Cell_Line) ON (c.uid);
+CREATE INDEX IF NOT EXISTS FOR (d:Drug) ON (d.drug_id);
+CREATE INDEX IF NOT EXISTS FOR (d:Drug) ON (d.CHEMBL);
+CREATE INDEX IF NOT EXISTS FOR (c:Cell_Line) ON (c.COSMIC_ID);
+CREATE INDEX IF NOT EXISTS FOR (p:Protein) ON (p.swiss);
+CALL gds.graph.project("graph", "Protein", {PPI: {orientation: "UNDIRECTED"}});
 ```
 - Start the fastapi server
 ```
@@ -85,6 +95,36 @@ npm start
 ```
 
 ## Production-Setup
+
+
+### Docker
+1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+2. Optional: Restart your pc after the installation
+3. Download the docker-compose.yml from the [docker folder](../docker/) of this repository. Important: Do not use the wrong docker-compose file!
+4. Open the Terminal in the folder where you placed the docker-compose.yml and run the following command:
+```
+docker-compose up
+```
+(Optional: First run docker-compose pull)
+This process can take some time (approximately 40 minutes).
+5. Call http://localhost:7474/browser/ and execute the following Neo4j cipher (user: neo4j, password: workwork).
+```
+CREATE INDEX IF NOT EXISTS FOR (d:Drug) ON (d.name);
+CREATE INDEX IF NOT EXISTS FOR (p:Protein) ON (p.name);
+CREATE INDEX IF NOT EXISTS FOR (c:Cell_Line) ON (c.name);
+CREATE INDEX IF NOT EXISTS FOR (d:Drug) ON (d.uid);
+CREATE INDEX IF NOT EXISTS FOR (p:Protein) ON (p.uid);
+CREATE INDEX IF NOT EXISTS FOR (c:Cell_Line) ON (c.uid);
+CREATE INDEX IF NOT EXISTS FOR (d:Drug) ON (d.drug_id);
+CREATE INDEX IF NOT EXISTS FOR (d:Drug) ON (d.CHEMBL);
+CREATE INDEX IF NOT EXISTS FOR (c:Cell_Line) ON (c.COSMIC_ID);
+CREATE INDEX IF NOT EXISTS FOR (p:Protein) ON (p.swiss);
+CALL gds.graph.project("graph", "Protein", {PPI: {orientation: "UNDIRECTED"}});
+```
+6. The website should be running on http://localhost:3000/
+
+
+### Server
 - Install all necessary python and js libraries
 - Setup a local Neo4j database (Version: 5.12.0 Community Edition) with the APOC and  Graph Data Science Library.
 &rarr; load backup in to the new neo4j database
@@ -96,11 +136,17 @@ neo4j start
 Note: change the file paths according to your configuration
 - Call http://localhost:7474/browser/ and execute the following Neo4j cipher
 ```
-CALL gds.graph.project(
-  'graph',
-  'Protein',
-  {PPI_ASSOCIATION: {orientation: 'UNDIRECTED'}}
-)
+CREATE INDEX IF NOT EXISTS FOR (d:Drug) ON (d.name);
+CREATE INDEX IF NOT EXISTS FOR (p:Protein) ON (p.name);
+CREATE INDEX IF NOT EXISTS FOR (c:Cell_Line) ON (c.name);
+CREATE INDEX IF NOT EXISTS FOR (d:Drug) ON (d.uid);
+CREATE INDEX IF NOT EXISTS FOR (p:Protein) ON (p.uid);
+CREATE INDEX IF NOT EXISTS FOR (c:Cell_Line) ON (c.uid);
+CREATE INDEX IF NOT EXISTS FOR (d:Drug) ON (d.drug_id);
+CREATE INDEX IF NOT EXISTS FOR (d:Drug) ON (d.CHEMBL);
+CREATE INDEX IF NOT EXISTS FOR (c:Cell_Line) ON (c.COSMIC_ID);
+CREATE INDEX IF NOT EXISTS FOR (p:Protein) ON (p.swiss);
+CALL gds.graph.project("graph", "Protein", {PPI: {orientation: "UNDIRECTED"}});
 ```
 - Start the fastapi server
 ```
