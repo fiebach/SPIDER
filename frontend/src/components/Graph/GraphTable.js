@@ -365,6 +365,7 @@ const GraphTable = ({ cy, updateGraph, setSelectedElementInfo, selectedNodes, al
 
     return (
         <div>
+            <p>Note: For clarity, this table shows only selected nodes and the edges connected to them.</p>
             <Select
                 showSearch
                 style={{ width: 200 }}

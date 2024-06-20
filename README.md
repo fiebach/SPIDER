@@ -1,4 +1,4 @@
-# Interaktive Visualisierung von Medikamentenwirkung auf Proteine/Interactive visualization of drug effects on proteins
+# SPIDER - System for Protein, Interactions, Drugs and Exploratory Research
 Our platform provides an immersive experience for exploring and analyzing a segment of the dataset from [Gonçalves et al.](https://pubmed.ncbi.nlm.nih.gov/35839778/). 
 With a primary focus on identifying associated proteins and drugs for individual or groups of proteins, SPIDER offers comprehensive tools for in-depth research.
 
@@ -61,7 +61,7 @@ The backend is divided into several subcategories:
 
 - Install all necessary Python and JS libraries.
 - Setup a local Neo4j database (Version: 5.12.0 Community Edition) with the APOC and  Graph Data Science Library.
-&rarr; Load backup into the new Neo4j database.
+&rarr; Load [backup](./backend/neo4j_database_dump/neo4j.dump) into the new Neo4j database.
 
 ```
 neo4j stop
@@ -102,7 +102,7 @@ To use SPIDER, you have two options: either utilize Docker or set up your own se
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 2. Optional: Restart your pc after the installation
 3. Download the [docker-compose.yml from the docker folder](./docker/docker-compose.yml) of this repository. Important: Do not use the wrong docker-compose file!
-4. Open the Terminal in the folder where you placed the docker-compose.yml and run the following command:
+4. Open the terminal in the folder where you placed the docker-compose.yml and run the following command:
 ```
 docker-compose up
 ```
@@ -123,12 +123,16 @@ CREATE INDEX IF NOT EXISTS FOR (p:Protein) ON (p.swiss);
 CALL gds.graph.project("graph", "Protein", {PPI: {orientation: "UNDIRECTED"}});
 ```
 6. The website should be running on http://localhost:3000/
+
+&nbsp;
+
+&nbsp;
 ***
 
 ### Server
 - Install all necessary python and js libraries
 - Setup a local Neo4j database (Version: 5.12.0 Community Edition) with the APOC and  Graph Data Science Library.
-&rarr; load backup in to the new neo4j database
+&rarr; load [backup](./backend/neo4j_database_dump/neo4j.dump) in to the new neo4j database
 ```
 neo4j stop
 neo4j-admin database load --from-path=C:\backup\backup neo4j --overwrite-destination=true
