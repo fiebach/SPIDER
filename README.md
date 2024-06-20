@@ -95,12 +95,13 @@ npm start
 ```
 
 ## Production-Setup
+To use SPIDER, you have two options: either utilize Docker or set up your own server.
 
-
+***
 ### Docker
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 2. Optional: Restart your pc after the installation
-3. Download the docker-compose.yml from the [docker folder](../docker/) of this repository. Important: Do not use the wrong docker-compose file!
+3. Download the [docker-compose.yml from the docker folder](./docker/docker-compose.yml) of this repository. Important: Do not use the wrong docker-compose file!
 4. Open the Terminal in the folder where you placed the docker-compose.yml and run the following command:
 ```
 docker-compose up
@@ -122,7 +123,7 @@ CREATE INDEX IF NOT EXISTS FOR (p:Protein) ON (p.swiss);
 CALL gds.graph.project("graph", "Protein", {PPI: {orientation: "UNDIRECTED"}});
 ```
 6. The website should be running on http://localhost:3000/
-
+***
 
 ### Server
 - Install all necessary python and js libraries
