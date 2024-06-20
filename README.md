@@ -1,4 +1,4 @@
-# SPIDER - System for Protein, Interactions, Drugs and Exploratory Research
+# SPIDER - Interaktive Visualisierung von Medikamentenwirkung auf Proteine/Interactive visualization of drug effects on proteins
 Our platform provides an immersive experience for exploring and analyzing a segment of the dataset from [Gonçalves et al.](https://pubmed.ncbi.nlm.nih.gov/35839778/). 
 With a primary focus on identifying associated proteins and drugs for individual or groups of proteins, SPIDER offers comprehensive tools for in-depth research.
 
