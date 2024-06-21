@@ -20,7 +20,7 @@ import threading
 import file_converter
 
 #############################
-# FastAPI Server for SPIDER #
+# FastAPI Server for VISPER #
 #############################
 
 app = FastAPI()

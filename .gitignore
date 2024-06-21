@@ -4,6 +4,6 @@ backend/help_data/drugbank
 backend/challenge_data
 backend/__pycache__
 db/
-
+backend/help_data/allInfoDrugBank
 build/
 build

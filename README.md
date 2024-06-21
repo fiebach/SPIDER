@@ -1,9 +1,9 @@
-# SPIDER - Interaktive Visualisierung von Medikamentenwirkung auf Proteine/Interactive visualization of drug effects on proteins
+# VISPER - Visualization System for Interactions between Proteins and Drugs for Exploratory Research 
 Our platform provides an immersive experience for exploring and analyzing a segment of the dataset from [Gonçalves et al.](https://pubmed.ncbi.nlm.nih.gov/35839778/). 
-With a primary focus on identifying associated proteins and drugs for individual or groups of proteins, SPIDER offers comprehensive tools for in-depth research.
+With a primary focus on identifying associated proteins and drugs for individual or groups of proteins, VISPER offers comprehensive tools for in-depth research.
 
-This repository contains the code for the **S**ystem for **P**rotein, **I**nteractions, **D**rugs, and **E**xploratory **R**esearch (**SPIDER**).
-To use SPIDER locally on your PC, we recommend using the Docker version of SPIDER. For detailed instructions, see the [Docker installation instructions](#docker).
+This repository contains the code for the **Vi**sualization **S**ystem for Interactions between **P**roteins and Drugs for **E**xploratory **R**esearch(**VISPER**).
+To use VISPER locally on your PC, we recommend using the Docker version of VISPER. For detailed instructions, see the [Docker installation instructions](#docker).
 
 
 
@@ -11,9 +11,9 @@ To use SPIDER locally on your PC, we recommend using the Docker version of SPIDE
 
 The code is divided into three main categories:
 
-1. **Frontend** - Code for the SPIDER frontend
+1. **Frontend** - Code for the VISPER frontend
 2. **Backend** - FastAPI server, Neo4j dump, and other utilities
-3. **Docker** - docker-compose.yml to install and run SPIDER in a Docker container
+3. **Docker** - docker-compose.yml to install and run VISPER in a Docker container
 
 These categories are further divided into subcategories.
 
@@ -22,7 +22,7 @@ These categories are further divided into subcategories.
 The frontend is divided into several components:
 
 1. **build**: Output file for deployment and other assets.
-2. **node_modules**: Used node modules for SPIDER.
+2. **node_modules**: Used node modules for VISPER.
 3. **public**: Used images.
 4. **src/components**: Includes all the components of the web application.
     1. **Database**: List and information for used datasets.
@@ -95,7 +95,7 @@ npm start
 ```
 
 ## Production-Setup
-To use SPIDER, you have two options: either utilize Docker or set up your own server.
+To use VISPER, you have two options: either utilize Docker or set up your own server.
 
 ***
 ### Docker
