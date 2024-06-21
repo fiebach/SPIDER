@@ -49,8 +49,11 @@ const FAQ = () => {
 <h1 style={{ fontWeight: 'bold', textAlign: 'left' }}>7. What are the default ProCan Association parameters?</h1>
 <p> The default definition for ProCan Associations is ((FDR  &lt;1% or  Nc_FDR  &lt;1%) and ABS(Beta &gt; 0.1 or Nc_Beta &gt; 0.1)). </p>
 <br/>
-<h1 style={{ fontWeight: 'bold', textAlign: 'left' }}>8. Have the ProCan data used been modified??</h1>
+<h1 style={{ fontWeight: 'bold', textAlign: 'left' }}>8. Have the ProCan data used been modified?</h1>
 <p> For clarity, we have excluded certain attributes from the ProCan dataset and rounded numerical values to either 3 or 5 decimal places.</p>
+<br/>
+<h1 style={{ fontWeight: 'bold', textAlign: 'left' }}>9. What do the ATC codes mean?</h1>
+<p> The drug color for ATC codes is based on the main anatomical or pharmacological groups. Detailed explanations for these groups are available on the <a href="https://www.who.int/tools/atc-ddd-toolkit/atc-classification">WHO website</a>.</p>
            <br/>
            <h1 style={{ fontWeight: 'bold', textAlign: 'left' }}>Overview over the database sources</h1>
             <Database/>
